@@ -10,7 +10,7 @@ public class App {
      * 
      * @param args The arguments of the program.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException  {
         System.out.println("-------- MySQL JDBC Connection Testing ------------");
 
         try {
@@ -24,8 +24,10 @@ public class App {
         System.out.println("MySQL JDBC Driver Registered!");
         Connection connection = null;
 
+        Thread.sleep(30000);
+
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://mysql:3306/mysql", "root", "root");
 
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
